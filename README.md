@@ -4,6 +4,7 @@ Steam4j is a Steam API binding library for the Java language.
 ## Version
 1.0
 
+## Code Examples
 ### Getting Steam Client
 At first it is necessary to acquire Steam Client to use steam4j.
 Api key can be generated http://steamcommunity.com/dev/apikey.
