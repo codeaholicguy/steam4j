@@ -14,7 +14,7 @@ public class ISteamAppsTest {
 
     @Test
     public void testGetAppList() throws Exception {
-        String apiKey = "F14129C7145CDA473B92A40B3627BE35";
+        String apiKey = "";
 
         SteamConfiguration configuration = new SteamConfiguration(apiKey);
         SteamClient steamClient = SteamFactory.getInstance(configuration).getClient();
