@@ -1,7 +1,5 @@
-# Steam API for Java
-
-# steam4j 
-steam4j is a Steam API binding library for the Java language.
+# Steam4j 
+Steam4j is a Steam API binding library for the Java language.
 
 ## Version
 1.0
