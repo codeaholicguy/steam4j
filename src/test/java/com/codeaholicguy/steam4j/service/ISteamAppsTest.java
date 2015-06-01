@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  */
 public class ISteamAppsTest {
 
-    private String apiKey = "F14129C7145CDA473B92A40B3627BE35";
+    private String apiKey = "";
 
     private SteamConfiguration configuration = new SteamConfiguration(apiKey);
     private SteamClient steamClient;
