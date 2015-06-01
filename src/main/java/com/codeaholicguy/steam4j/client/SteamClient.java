@@ -4,8 +4,10 @@ import com.codeaholicguy.steam4j.config.SteamConfiguration;
 import com.codeaholicguy.steam4j.constant.ErrorCode;
 import com.codeaholicguy.steam4j.exception.SteamTechnicalException;
 import com.codeaholicguy.steam4j.request.GetServersAtAddressRequest;
+import com.codeaholicguy.steam4j.request.UpToDateCheckRequest;
 import com.codeaholicguy.steam4j.response.GetAppListResponse;
 import com.codeaholicguy.steam4j.response.GetServersAtAddressResponse;
+import com.codeaholicguy.steam4j.response.UpToDateCheckResponse;
 import com.codeaholicguy.steam4j.service.ISteamApps;
 import com.codeaholicguy.steam4j.service.SteamApps;
 
@@ -51,9 +53,17 @@ public class SteamClient {
         }
     }
 
-    public GetServersAtAddressResponse getServersAtAddressResponse(GetServersAtAddressRequest request) throws SteamTechnicalException {
+    public GetServersAtAddressResponse getServersAtAddress(GetServersAtAddressRequest request) throws SteamTechnicalException {
         try {
             return steamApps.getServersAtAddressResponse(this.configuration, request);
+        } catch (IllegalAccessException | IOException | URISyntaxException e) {
+            throw new SteamTechnicalException(String.format("Technical error: %s", e.getMessage()), ErrorCode.TECHNICAL_ERROR);
+        }
+    }
+
+    public UpToDateCheckResponse checkUpToDate(UpToDateCheckRequest request) throws SteamTechnicalException {
+        try {
+            return steamApps.upToDateCheckResponse(this.configuration, request);
         } catch (IllegalAccessException | IOException | URISyntaxException e) {
             throw new SteamTechnicalException(String.format("Technical error: %s", e.getMessage()), ErrorCode.TECHNICAL_ERROR);
         }

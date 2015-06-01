@@ -2,8 +2,10 @@ package com.codeaholicguy.steam4j.service;
 
 import com.codeaholicguy.steam4j.config.SteamConfiguration;
 import com.codeaholicguy.steam4j.request.GetServersAtAddressRequest;
+import com.codeaholicguy.steam4j.request.UpToDateCheckRequest;
 import com.codeaholicguy.steam4j.response.GetAppListResponse;
 import com.codeaholicguy.steam4j.response.GetServersAtAddressResponse;
+import com.codeaholicguy.steam4j.response.UpToDateCheckResponse;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -32,4 +34,12 @@ public interface ISteamApps {
      */
     GetServersAtAddressResponse getServersAtAddressResponse(SteamConfiguration configuration, GetServersAtAddressRequest request) throws IOException, URISyntaxException, IllegalAccessException;
 
+    /**
+     * Check if a given app version is the most current available.
+     *
+     * @param configuration configuration
+     * @param request       request
+     * @return UpToDateCheckResponse
+     */
+    UpToDateCheckResponse upToDateCheckResponse(SteamConfiguration configuration, UpToDateCheckRequest request) throws IllegalAccessException, IOException, URISyntaxException;
 }
