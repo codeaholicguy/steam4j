@@ -2,6 +2,9 @@ package com.codeaholicguy.steam4j.factory;
 
 import com.codeaholicguy.steam4j.client.SteamClient;
 import com.codeaholicguy.steam4j.config.SteamConfiguration;
+import com.codeaholicguy.steam4j.constant.ErrorCode;
+import com.codeaholicguy.steam4j.exception.SteamConfigurationException;
+import com.codeaholicguy.steam4j.util.StringUtil;
 
 /**
  * Steam Factory to get Client.
@@ -15,7 +18,10 @@ public class SteamFactory {
 
     private SteamConfiguration configuration;
 
-    public static SteamFactory getInstance(SteamConfiguration configuration) {
+    public static SteamFactory getInstance(SteamConfiguration configuration) throws SteamConfigurationException {
+        if (StringUtil.isNullorEmpty(configuration.getKey())) {
+            throw new SteamConfigurationException("Invalid api key", ErrorCode.INVALID_API_KEY);
+        }
         if (ourInstance == null) {
             ourInstance = new SteamFactory(configuration);
         }
