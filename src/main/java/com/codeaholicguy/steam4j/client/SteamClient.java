@@ -3,11 +3,15 @@ package com.codeaholicguy.steam4j.client;
 import com.codeaholicguy.steam4j.config.SteamConfiguration;
 import com.codeaholicguy.steam4j.constant.ErrorCode;
 import com.codeaholicguy.steam4j.exception.SteamTechnicalException;
+import com.codeaholicguy.steam4j.request.GetRaritiesRequest;
 import com.codeaholicguy.steam4j.request.GetServersAtAddressRequest;
 import com.codeaholicguy.steam4j.request.UpToDateCheckRequest;
 import com.codeaholicguy.steam4j.response.GetAppListResponse;
+import com.codeaholicguy.steam4j.response.GetRaritiesResponse;
 import com.codeaholicguy.steam4j.response.GetServersAtAddressResponse;
 import com.codeaholicguy.steam4j.response.UpToDateCheckResponse;
+import com.codeaholicguy.steam4j.service.Dota;
+import com.codeaholicguy.steam4j.service.IDota;
 import com.codeaholicguy.steam4j.service.ISteamApps;
 import com.codeaholicguy.steam4j.service.SteamApps;
 
@@ -65,6 +69,16 @@ public class SteamClient {
         try {
             return steamApps.upToDateCheckResponse(this.configuration, request);
         } catch (IllegalAccessException | IOException | URISyntaxException e) {
+            throw new SteamTechnicalException(String.format("Technical error: %s", e.getMessage()), ErrorCode.TECHNICAL_ERROR);
+        }
+    }
+
+    private IDota dota = new Dota();
+
+    public GetRaritiesResponse getRarities(GetRaritiesRequest request) throws SteamTechnicalException {
+        try {
+            return dota.getRarities(this.configuration, request);
+        } catch (IOException | URISyntaxException | IllegalAccessException e) {
             throw new SteamTechnicalException(String.format("Technical error: %s", e.getMessage()), ErrorCode.TECHNICAL_ERROR);
         }
     }

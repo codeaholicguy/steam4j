@@ -36,5 +36,10 @@ public class SteamAPI {
         public static final String GET_ASSET_PRICES = "/GetAssetPrices/v0001";
     }
 
+    public class Dota {
+        public static final String PATH = "/IEconDOTA2_570";
+
+        public static final String GET_RARITIES = "/GetRarities/v1";
+    }
 
 }
