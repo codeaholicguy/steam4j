@@ -4,6 +4,7 @@ import com.codeaholicguy.steam4j.client.SteamClient;
 import com.codeaholicguy.steam4j.config.SteamConfiguration;
 import com.codeaholicguy.steam4j.constant.SteamAppId;
 import com.codeaholicguy.steam4j.factory.SteamFactory;
+import com.codeaholicguy.steam4j.helper.Constant;
 import com.codeaholicguy.steam4j.request.GetServersAtAddressRequest;
 import com.codeaholicguy.steam4j.request.UpToDateCheckRequest;
 import org.junit.Assert;
@@ -18,10 +19,7 @@ import static org.junit.Assert.*;
  * @author hoangnn
  */
 public class ISteamAppsTest {
-
-    private String apiKey = "";
-
-    private SteamConfiguration configuration = new SteamConfiguration(apiKey);
+    private SteamConfiguration configuration = new SteamConfiguration(Constant.TEMPORARY_API_KEY);
     private SteamClient steamClient;
 
     @Before

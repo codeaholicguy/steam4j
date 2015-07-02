@@ -4,6 +4,7 @@ import com.codeaholicguy.steam4j.client.SteamClient;
 import com.codeaholicguy.steam4j.config.SteamConfiguration;
 import com.codeaholicguy.steam4j.factory.SteamFactory;
 import com.codeaholicguy.steam4j.request.GetRaritiesRequest;
+import com.codeaholicguy.steam4j.helper.Constant;
 import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,9 +15,8 @@ import org.junit.Test;
  */
 public class IDotaTest extends TestCase {
 
-    private String apiKey = "";
 
-    private SteamConfiguration configuration = new SteamConfiguration(apiKey);
+    private SteamConfiguration configuration = new SteamConfiguration(Constant.TEMPORARY_API_KEY);
     private SteamClient steamClient;
 
     @Before
